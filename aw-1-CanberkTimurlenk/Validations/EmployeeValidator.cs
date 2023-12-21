@@ -53,10 +53,11 @@ public class EmployeeValidator : AbstractValidator<Employee>
     {
         var dateBeforeThirtyYears = DateTime.Today.AddYears(-1 * EmployeeConstants.SeniorPromotionAge);
 
-        var isOlderThanThirdyYears = employee.DateOfBirth <= dateBeforeThirtyYears;
+        var isOlderThanThirtyYears = employee.DateOfBirth <= dateBeforeThirtyYears;
 
-        return isOlderThanThirdyYears
-            ? employee.HourlySalary >= minJuniorSalary
-            : employee.HourlySalary >= minSeniorSalary;
+        return isOlderThanThirtyYears
+            ? employee.HourlySalary >= minSeniorSalary
+            : employee.HourlySalary >= minJuniorSalary;
+
     }
 }
